@@ -93,7 +93,7 @@ const Products = ({products}) => {
 export default Products;
 
 export async function getStaticProps(context) {
-    const response = await fetch(`http://localhost:5003/api/products`)
+    const response = await fetch( process.env.NEXT_PUBLIC_API_URL +`api/products`)
     const products = await response.json()
 
 

@@ -89,10 +89,10 @@ export default function Home({categories, products}) {
 }
 
 export async function getServerSideProps(context) {
-    const responseCategories = await fetch(`http://localhost:5003/api/categories`)
+    const responseCategories = await fetch(process.env.NEXT_PUBLIC_API_URL +`api/categories`)
     const categories = await responseCategories.json()
 
-    const responseProducts = await fetch(`http://localhost:5003/api/products`)
+    const responseProducts = await fetch(process.env.NEXT_PUBLIC_API_URL +`api/products`)
     const products = await responseProducts.json()
     return {
         props: {categories, products}, // will be passed to the page component as props

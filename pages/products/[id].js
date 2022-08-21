@@ -266,7 +266,7 @@ export default function ({product}) {
 };
 
 export async function getServerSideProps({params}) {
-    const responseProduct = await fetch(`http://localhost:5003/api/products/${params.id}`)
+    const responseProduct = await fetch(process.env.NEXT_PUBLIC_API_URL +`api/products/${params.id}`)
     const product = await responseProduct.json()
     return {
         props: {product}, // will be passed to the page component as props

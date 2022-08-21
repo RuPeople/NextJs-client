@@ -89,11 +89,11 @@ export default function ({category, products}) {
 export async function getServerSideProps({params, query}) {
     /*console.log(params)*/
     console.log(query)
-    const responseCategory = await fetch(`http://localhost:5003/api/categories/${params.id}`)
+    const responseCategory = await fetch(process.env.NEXT_PUBLIC_API_URL +`api/categories/${params.id}`)
     const category = await responseCategory.json()
 
 
-    const responseProducts = await fetch(`http://localhost:5003/api/products?categoryId=${params.id}`)
+    const responseProducts = await fetch(process.env.NEXT_PUBLIC_API_URL +`api/products?categoryId=${params.id}`)
     const products = await responseProducts.json()
     return {
         props: {category, products}, // will be passed to the page component as props

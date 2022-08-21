@@ -83,7 +83,7 @@ export default Categories;
 
 
 export async function getStaticProps(context) {
-    const response = await fetch(`http://localhost:5003/api/categories`)
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL +`api/categories`)
     const categories = await response.json()
 
 
